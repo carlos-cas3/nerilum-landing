@@ -1,0 +1,13 @@
+/* Portada: titular, texto y botones. Incluye la animación de entrada. */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,5vw,4rem);align-items:center;padding:clamp(1.5rem,5vw,3.5rem) 0 clamp(3rem,7vw,6rem)}
+.hero .lead{font-size:1.2rem;color:var(--muted);max-width:30rem;margin:1.5rem 0 2rem}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem}
+.note{margin-top:1.5rem;font-size:.88rem;color:var(--muted);max-width:30rem}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:no-preference){
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.93) rotate(-1.5deg)}to{opacity:1;transform:none}}
+.js .hero h1,.js .hero .lead,.js .hero .cta,.js .hero .note{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.js .hero .lead{animation-delay:.12s}.js .hero .cta{animation-delay:.24s}.js .hero .note{animation-delay:.34s}
+.js .scan{animation:pop .8s .15s cubic-bezier(.2,.7,.2,1) both}
+}

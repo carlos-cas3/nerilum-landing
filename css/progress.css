@@ -1,0 +1,8 @@
+/* Barra de progreso de lectura. Solo se muestra en navegadores con scroll-driven animations. */
+.progress{display:none}
+@supports (animation-timeline:scroll()){
+@media(prefers-reduced-motion:no-preference){
+.progress{display:block;position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:4px;background:var(--brand);transform:scaleX(0);transform-origin:0 50%;z-index:30;pointer-events:none;animation:progress linear both;animation-timeline:scroll(root block)}
+@keyframes progress{to{transform:scaleX(1)}}
+}
+}

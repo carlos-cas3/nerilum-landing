@@ -1,0 +1,23 @@
+/* Sección Privacidad (banda verde). */
+.band{background:var(--band);color:var(--band-ink);border-top:0}
+.priv{display:grid;grid-template-columns:.8fr 1.4fr;gap:clamp(2rem,6vw,5rem)}
+.priv>h2{align-self:start}
+.say{border-top:1px solid #6A994E;padding:1.4rem 0}
+.say:last-child{border-bottom:1px solid #6A994E}
+.say b{display:block;font:400 clamp(1.6rem,3.2vw,2.5rem)/1.12 var(--serif)}
+.say b u{text-decoration:none;color:#A7C957}
+.say p{color:#D9DFC4;margin-top:.4rem;max-width:30rem}
+@media(max-width:820px){.priv{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:no-preference){
+.js .say u{background:linear-gradient(#A7C957,#A7C957) 0 96%/0% 3px no-repeat;transition:background-size .9s .25s cubic-bezier(.6,0,.2,1)}
+.js .say.on u{background-size:100% 3px}
+}
+
+/* Scroll-driven: el subrayado de cada frase avanza con el scroll. */
+@supports (animation-timeline:view()){
+@media(prefers-reduced-motion:no-preference){
+.say{view-timeline:--say block}
+@keyframes ul{from{background-size:0% 3px}to{background-size:100% 3px}}
+.js .say u,.js .say.on u{transition:none;animation:ul linear both;animation-timeline:--say;animation-range:entry 30% entry 90%}
+}
+}

@@ -1,0 +1,21 @@
+/* Colores, tipografías y variables. Modo claro y oscuro. */
+:root{
+  --bg:#F2E8CF; --surface:#E8DCBC; --ink:#1C2E20; --muted:#4F5E48; --line:#CDBF98;
+  --brand:#386641; --brand-hover:#2B5133; --on-brand:#F2E8CF; --mid:#6A994E; --lime:#A7C957; --alert:#BC4749;
+  --band:#386641; --band-ink:#F2E8CF; --dot-off:#D9CBA3; --dotb:#6A994E; --logo-dot:#A7C957;
+  --serif:"Geist","Young Serif",Georgia,"Times New Roman",serif;
+  --sans:"Geist","Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --dotb:#A7C957; --logo-dot:#386641;
+    --bg:#101C14; --surface:#182A1E; --ink:#F2E8CF; --muted:#AFB99F; --line:#2B4130; --dot-off:#26402D;
+    --brand:#A7C957; --brand-hover:#B9D76F; --on-brand:#14230F; --alert:#E0686A; --band:#1D3A26; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --dotb:#A7C957; --logo-dot:#386641;
+  --bg:#101C14; --surface:#182A1E; --ink:#F2E8CF; --muted:#AFB99F; --line:#2B4130; --dot-off:#26402D;
+  --brand:#A7C957; --brand-hover:#B9D76F; --on-brand:#14230F; --alert:#E0686A; --band:#1D3A26; color-scheme:dark;
+}

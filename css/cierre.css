@@ -1,0 +1,8 @@
+/* Cierre: investigación y aviso médico. */
+.closing{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.closing p{color:var(--muted);margin-top:1rem;max-width:34rem}
+.disc{background:var(--surface);border-left:6px solid var(--alert);border-radius:6px;padding:1.5rem}
+.disc strong{display:block;font:400 1.25rem var(--serif);margin-bottom:.5rem}
+.disc p{margin:0}
+.closing .btn{margin-top:1.75rem}
+@media(max-width:860px){.closing{grid-template-columns:1fr}}

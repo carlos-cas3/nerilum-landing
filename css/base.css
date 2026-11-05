@@ -1,0 +1,16 @@
+/* Reset, tipografía base, layout general y utilidades. */
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;isolation:isolate}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:url("../stacked-waves-haikei.svg") center/cover no-repeat;opacity:.1;filter:hue-rotate(-105deg) saturate(.55) brightness(.78)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) body::before{opacity:.16}}
+:root[data-theme="dark"] body::before{opacity:.16}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;line-height:1.06;letter-spacing:-.015em}
+h1{font-size:clamp(2.7rem,6.4vw,5.4rem)}
+h2{font-size:clamp(1.9rem,3.8vw,3rem)}
+p{margin:0}a{color:inherit}
+:focus-visible{outline:3px solid var(--alert);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+section{padding:clamp(3.5rem,8vw,6.5rem) 0;border-top:1px solid var(--line)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

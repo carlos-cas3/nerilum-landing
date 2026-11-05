@@ -53,7 +53,7 @@
 .timer.manual b.cur i{animation:none;width:100%}
 @keyframes fill{from{width:0}to{width:100%}}
 .pick{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 .9rem}
-.pick button{font:500 .88rem var(--sans);padding:.5rem .85rem;border-radius:8px;border:1.5px solid #3C5A41;background:transparent;color:#F2E8CF;cursor:pointer;transition:background .15s,transform .12s}
+.pick button{flex:1;min-width:0;font:500 .88rem var(--sans);padding:.5rem .6rem;border-radius:8px;border:1.5px solid #3C5A41;background:transparent;color:#F2E8CF;cursor:pointer;transition:background .15s,transform .12s;white-space:nowrap}
 .pick button:hover{background:#1B2E20}
 .pick button[aria-pressed="true"]{background:#F2E8CF;color:#14230F;border-color:#F2E8CF}
 .bars{display:grid;gap:.55rem;font-size:.82rem}

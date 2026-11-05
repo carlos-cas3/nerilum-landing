@@ -60,8 +60,6 @@
   function mark(k){segs.forEach(function(s,i){s.className=i<k?'done':i===k?'cur':'';});}
 
   function go(k){cur=k;show(k);mark(k);}
-  function stop(){timerEl.classList.add('paused');}
-  function play(){if(!hold)timerEl.classList.remove('paused');}
 
   /* ── Pausa/reanuda al hacer click/tap en la imagen ── */
   var hold=false;
@@ -88,18 +86,22 @@
 
   btns.forEach(function(b){
     b.addEventListener('click',function(){
-      touched=true;
-      timerEl.classList.add('manual');
-      go(+b.dataset.i);
-      document.getElementById('live').textContent='Resultado de ejemplo: '+CASES[+b.dataset.i].n;
+      var k=+b.dataset.i;
+      // Si ya estaba pausado por hold, lo liberamos también
+      hold=false;
+      viewEl.classList.remove('paused');
+      viewEl.setAttribute('aria-label','Corte de resonancia cerebral — haz clic para pausar');
+      touched=false;
+      // Reiniciar el timer desde el principio de esta sección
+      timerEl.classList.remove('manual','paused');
+      segs[k].className='';
+      void timerEl.offsetWidth;   // reflow para que la animación CSS reinicie
+      go(k);
+      document.getElementById('live').textContent='Resultado de ejemplo: '+CASES[k].n;
     });
   });
 
-  /* Hover con mouse pausa suavemente; touch no pausa (el usuario puede hacer tap para alternar) */
-  scan.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'&&!hold)stop();});
-  scan.addEventListener('pointerleave',function(){if(!hold)play();});
-  scan.addEventListener('focusin',function(e){if(e.target!==viewEl)stop();});
-  scan.addEventListener('focusout',function(e){if(e.target!==viewEl)play();});
+
 
   requestAnimationFrame(function(){show(1);});
   mark(1);

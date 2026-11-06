@@ -157,24 +157,24 @@
 }
 
 .pick {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: .5rem;
   margin: 1rem 0 .9rem
 }
 
 .pick button {
-  flex: 1;
-  min-width: 0;
-  font: 500 .88rem var(--sans);
-  padding: .5rem .6rem;
+  font: 500 .85rem var(--sans);
+  padding: .55rem .5rem;
   border-radius: 8px;
   border: 1.5px solid #3C5A41;
   background: transparent;
   color: #F2E8CF;
   cursor: pointer;
   transition: background .15s, transform .12s;
-  white-space: nowrap
+  white-space: nowrap;
+  text-align: center;
+  min-height: 2.5rem
 }
 
 .pick button:hover {
@@ -185,6 +185,13 @@
   background: #F2E8CF;
   color: #14230F;
   border-color: #F2E8CF
+}
+
+/* En pantallas más anchas (≥ 520 px dentro del panel) vuelve a una fila */
+@media (min-width: 640px) {
+  .pick {
+    grid-template-columns: repeat(4, 1fr)
+  }
 }
 
 .bars {

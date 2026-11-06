@@ -34,388 +34,166 @@
     </head>
     <body>
         <!-- sections/progress.html -->
-        <div class="progress" aria-hidden="true"></div>
-
+<div class="progress" aria-hidden="true"></div>
         <div class="wrap">
             <!-- sections/nav.html -->
-            <nav>
-                <a class="brand" href="#top" aria-label="Nerilum, inicio">
-                    <img
-                        src="src/assets/nerilum-app-icon-1024.png"
-                        alt="Logo Nerilum"
-                        class="logo"
-                    />
-                    Nerilum
-                </a>
-                <div class="links">
-                    <a href="#contexto">Contexto</a
-                    ><a href="#como">Cómo funciona</a
-                    ><a href="#privacidad">Privacidad</a>
-                </div>
-                <a class="btn sm" href="https://google.com"> Ingreso </a>
-            </nav>
+<nav>
+    <a class="brand" href="#top" aria-label="Nerilum, inicio">
+        <img
+            src="src/assets/nerilum-app-icon-1024.png"
+            alt="Logo Nerilum"
+            class="logo"
+        />
+        Nerilum
+    </a>
+    <div class="links">
+        <a href="#contexto">Contexto</a><a href="#como">Cómo funciona</a
+        ><a href="#privacidad">Privacidad</a>
+    </div>
+    <a class="btn sm" href="https://google.com"> Ingreso </a>
+</nav>
 
             <!-- sections/hero.html -->
-            <header class="hero" id="top">
-                <div>
-                    <h1>Una segunda mirada a la resonancia cerebral.</h1>
-                    <p class="lead">
-                        Sube una imagen MRI y Nerilum la clasifica en cuatro
-                        categorías de demencia, con la puntuación de cada una.
-                        Tú decides si guardar el resultado.
-                    </p>
-                    <div class="cta">
-                        <a class="btn" href="#como">Ver cómo funciona</a>
-                        <a class="btn ghost" href="#privacidad"
-                            >Ver privacidad</a
-                        >
-                    </div>
-                    <p class="note">
-                        Prototipo académico para Android y web. Es orientativo y
-                        no sustituye un diagnóstico médico.
-                    </p>
-                </div>
+  <header class="hero" id="top">
+    <div>
+      <h1>Una segunda mirada a la resonancia cerebral.</h1>
+      <p class="lead">Sube una imagen MRI y Nerilum la clasifica en cuatro categorías de demencia, con la puntuación de cada una. Tú decides si guardar el resultado.</p>
+      <div class="cta">
+        <a class="btn" href="#como">Ver cómo funciona</a>
+        <a class="btn ghost" href="#privacidad">Ver privacidad</a>
+      </div>
+      <p class="note">Prototipo académico para Android y web. Es orientativo y no sustituye un diagnóstico médico.</p>
+    </div>
 
-                <div class="scan">
-                    <div class="timer" aria-hidden="true">
-                        <b><i></i></b><b><i></i></b><b><i></i></b><b><i></i></b>
-                    </div>
-                    <div class="view">
-                        <span class="tag">Ejemplo ilustrativo</span>
-                        <svg
-                            viewBox="0 0 400 320"
-                            role="img"
-                            aria-label="Corte de resonancia cerebral"
-                        >
-                            <defs>
-                                <radialGradient
-                                    id="g"
-                                    cx="50%"
-                                    cy="48%"
-                                    r="55%"
-                                >
-                                    <stop offset="0" stop-color="#9A9E94" />
-                                    <stop offset=".55" stop-color="#52564E" />
-                                    <stop offset="1" stop-color="#151A14" />
-                                </radialGradient>
-                            </defs>
-                            <rect width="400" height="320" fill="#070C08" />
-                            <ellipse
-                                cx="200"
-                                cy="160"
-                                rx="132"
-                                ry="150"
-                                fill="none"
-                                stroke="#D5D8CC"
-                                stroke-opacity=".32"
-                                stroke-width="10"
-                            />
-                            <ellipse
-                                cx="200"
-                                cy="160"
-                                rx="118"
-                                ry="136"
-                                fill="url(#g)"
-                            />
-                            <path
-                                d="M200 40c-8 40-4 70 0 100M200 190c6 40 4 70 0 96"
-                                stroke="#151A14"
-                                stroke-opacity=".55"
-                                stroke-width="4"
-                                fill="none"
-                            />
-                            <path
-                                d="M168 128c-18 6-22 30-8 44 10 8 26 2 30-12 4-16-8-36-22-32zM232 128c18 6 22 30 8 44-10 8-26 2-30-12-4-16 8-36 22-32z"
-                                fill="#0A0F0B"
-                                fill-opacity=".85"
-                            />
-                            <g
-                                fill="none"
-                                stroke="#151A14"
-                                stroke-opacity=".4"
-                                stroke-width="3"
-                                stroke-linecap="round"
-                            >
-                                <path
-                                    d="M110 120c14-20 34-26 52-24M290 120c-14-20-34-26-52-24M104 200c16 22 38 30 58 26M296 200c-16 22-38 30-58 26"
-                                />
-                            </g>
-                        </svg>
-                        <!-- Indicador de pausa (visible al hacer click en la imagen) -->
-                        <div class="view-icon" aria-hidden="true">
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                                aria-hidden="true"
-                            >
-                                <rect
-                                    x="4"
-                                    y="3"
-                                    width="4"
-                                    height="14"
-                                    rx="1.5"
-                                    fill="#F2E8CF"
-                                />
-                                <rect
-                                    x="12"
-                                    y="3"
-                                    width="4"
-                                    height="14"
-                                    rx="1.5"
-                                    fill="#F2E8CF"
-                                />
-                            </svg>
-                        </div>
-                    </div>
-                    <div
-                        class="pick"
-                        role="group"
-                        aria-label="Elige un resultado de ejemplo"
-                    >
-                        <button type="button" data-i="0" aria-pressed="false">
-                            Sin demencia
-                        </button>
-                        <button type="button" data-i="1" aria-pressed="true">
-                            Muy leve
-                        </button>
-                        <button type="button" data-i="2" aria-pressed="false">
-                            Leve
-                        </button>
-                        <button type="button" data-i="3" aria-pressed="false">
-                            Moderada
-                        </button>
-                    </div>
-                    <div class="bars">
-                        <div class="bar">
-                            <span>NonDemented</span><b><i></i></b><span></span>
-                        </div>
-                        <div class="bar">
-                            <span>VeryMild</span><b><i></i></b><span></span>
-                        </div>
-                        <div class="bar">
-                            <span>Mild</span><b><i></i></b><span></span>
-                        </div>
-                        <div class="bar">
-                            <span>Moderate</span><b><i></i></b><span></span>
-                        </div>
-                    </div>
-                    <p class="sr" id="live" aria-live="polite"></p>
-                    <small
-                        >Prueba cada resultado. Los valores son de muestra y no
-                        corresponden a un paciente real.</small
-                    >
-                </div>
-            </header>
+    <div class="scan">
+      <div class="timer" aria-hidden="true"><b><i></i></b><b><i></i></b><b><i></i></b><b><i></i></b></div>
+      <div class="view">
+        <span class="tag">Ejemplo ilustrativo</span>
+        <div class="slides">
+          <img class="slide" src="src/assets/nonDem.jpg" alt="" width="944" height="1116" decoding="async">
+          <img class="slide is-active" src="src/assets/veryMildDem.jpg" alt="" width="944" height="1116" decoding="async">
+          <img class="slide" src="src/assets/milDem.jpg" alt="" width="944" height="1116" decoding="async">
+          <img class="slide" src="src/assets/moderateDem.jpg" alt="" width="944" height="1116" decoding="async">
+        </div>
+        <!-- Indicador de pausa (visible al hacer click en la imagen) -->
+        <div class="view-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <rect x="4" y="3" width="4" height="14" rx="1.5" fill="#F2E8CF"/>
+            <rect x="12" y="3" width="4" height="14" rx="1.5" fill="#F2E8CF"/>
+          </svg>
+        </div>
+      </div>
+      <div class="pick" role="group" aria-label="Elige un resultado de ejemplo">
+        <button type="button" data-i="0" aria-pressed="false">Sin demencia</button>
+        <button type="button" data-i="1" aria-pressed="true">Muy leve</button>
+        <button type="button" data-i="2" aria-pressed="false">Leve</button>
+        <button type="button" data-i="3" aria-pressed="false">Moderada</button>
+      </div>
+      <div class="bars">
+        <div class="bar"><span>NonDemented</span><b><i></i></b><span></span></div>
+        <div class="bar"><span>VeryMild</span><b><i></i></b><span></span></div>
+        <div class="bar"><span>Mild</span><b><i></i></b><span></span></div>
+        <div class="bar"><span>Moderate</span><b><i></i></b><span></span></div>
+      </div>
+      <p class="sr" id="live" aria-live="polite"></p>
+      <small>Prueba cada resultado. Los valores son de muestra y no corresponden a un paciente real.</small>
+    </div>
+  </header>
         </div>
 
         <!-- sections/contexto.html -->
-        <section id="contexto">
-            <div class="wrap">
-                <div class="ctx">
-                    <div>
-                        <div
-                            class="waffle"
-                            id="waffle"
-                            role="img"
-                            aria-label="Se estima que de cada 100 casos de demencia, entre 60 y 70 son Alzheimer"
-                        ></div>
-                        <div class="key">
-                            <span
-                                ><i style="background: var(--brand)"></i
-                                >Alzheimer: 60 de cada 100</span
-                            ><span
-                                ><i
-                                    style="
-                                        box-shadow: inset 0 0 0 2px var(--brand);
-                                    "
-                                ></i
-                                >Rango estimado, hasta 70</span
-                            ><span
-                                ><i style="background: var(--dot-off)"></i>otras
-                                demencias</span
-                            >
-                        </div>
-                    </div>
-                    <div>
-                        <h2>
-                            Se estima que, de cada 100 casos de demencia, entre
-                            60 y 70 son Alzheimer.
-                        </h2>
-                        <p>
-                            Más de <b>57 millones de personas</b> viven con
-                            demencia en el mundo y cada año se suman cerca de
-                            <b>10 millones de casos nuevos</b>. Detectar señales
-                            a tiempo permite actuar antes, y la visión por
-                            computadora es una vía de apoyo que la investigación
-                            sigue explorando.
-                        </p>
-                        <p>
-                            La OMS estima que hasta un <b>45 %</b> de los casos
-                            podrían prevenirse o retrasarse actuando sobre
-                            factores de riesgo como el sedentarismo, el
-                            tabaquismo o la hipertensión.
-                        </p>
-                        <p class="src">
-                            Fuente: Organización Mundial de la Salud, guías de
-                            reducción de riesgo de demencia, julio de 2026.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="contexto">
+  <div class="wrap">
+    <div class="ctx">
+      <div>
+        <div class="waffle" id="waffle" role="img" aria-label="Se estima que de cada 100 casos de demencia, entre 60 y 70 son Alzheimer"></div>
+        <div class="key"><span><i style="background:var(--brand)"></i>Alzheimer: 60 de cada 100</span><span><i style="box-shadow:inset 0 0 0 2px var(--brand)"></i>Rango estimado, hasta 70</span><span><i style="background:var(--dot-off)"></i>otras demencias</span></div>
+      </div>
+      <div>
+        <h2>Se estima que, de cada 100 casos de demencia, entre 60 y 70 son Alzheimer.</h2>
+        <p>Más de <b>57 millones de personas</b> viven con demencia en el mundo y cada año se suman cerca de <b>10 millones de casos nuevos</b>. Detectar señales a tiempo permite actuar antes, y la visión por computadora es una vía de apoyo que la investigación sigue explorando.</p>
+        <p>La OMS estima que hasta un <b>45 %</b> de los casos podrían prevenirse o retrasarse actuando sobre factores de riesgo como el sedentarismo, el tabaquismo o la hipertensión.</p>
+        <p class="src">Fuente: Organización Mundial de la Salud, guías de reducción de riesgo de demencia, julio de 2026.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
         <!-- sections/como.html -->
-        <section id="como">
-            <div class="wrap">
-                <div class="head">
-                    <h2>De la imagen al resultado en tres pasos.</h2>
-                </div>
-                <div class="track">
-                    <div class="step">
-                        <i>1</i>
-                        <h3>Sube tu imagen</h3>
-                        <p>
-                            Una resonancia en JPG o PNG de hasta 10 MB. Puedes
-                            verla, ampliarla, cambiarla o quitarla antes de
-                            enviar.
-                        </p>
-                    </div>
-                    <div class="step">
-                        <i>2</i>
-                        <h3>Recibe la clasificación</h3>
-                        <p>
-                            Un modelo de IA la analiza y devuelve la categoría
-                            estimada y la puntuación de las cuatro clases.
-                        </p>
-                    </div>
-                    <div class="step">
-                        <i>3</i>
-                        <h3>Guarda o descarta</h3>
-                        <p>
-                            Ponle nombre y guárdalo, o descártalo sin dejar
-                            ningún registro.
-                        </p>
-                    </div>
-                </div>
-                <div class="after">
-                    <div class="panel">
-                        <h3>Tu historial, a la mano</h3>
-                        <div class="hist" aria-hidden="true">
-                            <div>
-                                <span>Resonancia de octubre</span
-                                ><em style="--c: #a7c957">NonDemented</em>
-                            </div>
-                            <div>
-                                <span>Control de septiembre</span
-                                ><em style="--c: #6a994e">VeryMild</em>
-                            </div>
-                            <div>
-                                <span>Primera consulta</span
-                                ><em style="--c: #a7c957">NonDemented</em>
-                            </div>
-                        </div>
-                        <p>Ordena, filtra por clase y busca por nombre.</p>
-                    </div>
-                    <div class="panel">
-                        <h3>Reporte en PDF</h3>
-                        <div class="sheet" aria-hidden="true">
-                            <b>Reporte Nerilum</b><span class="w"></span
-                            ><span></span><span class="r"></span>
-                        </div>
-                        <p>
-                            Se genera en tu dispositivo, sin pasar por el
-                            servidor. Imprímelo o compártelo con cualquier app.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="como">
+  <div class="wrap">
+    <div class="head"><h2>De la imagen al resultado en tres pasos.</h2></div>
+    <div class="track">
+      <div class="step"><i>1</i><h3>Sube tu imagen</h3><p>Una resonancia en JPG o PNG de hasta 10 MB. Puedes verla, ampliarla, cambiarla o quitarla antes de enviar.</p></div>
+      <div class="step"><i>2</i><h3>Recibe la clasificación</h3><p>Un modelo de IA la analiza y devuelve la categoría estimada y la puntuación de las cuatro clases.</p></div>
+      <div class="step"><i>3</i><h3>Guarda o descarta</h3><p>Ponle nombre y guárdalo, o descártalo sin dejar ningún registro.</p></div>
+    </div>
+    <div class="after">
+      <div class="panel">
+        <h3>Tu historial, a la mano</h3>
+        <div class="hist" aria-hidden="true">
+          <div><span>Resonancia de octubre</span><em style="--c:#A7C957">NonDemented</em></div>
+          <div><span>Control de septiembre</span><em style="--c:#6A994E">VeryMild</em></div>
+          <div><span>Primera consulta</span><em style="--c:#A7C957">NonDemented</em></div>
+        </div>
+        <p>Ordena, filtra por clase y busca por nombre.</p>
+      </div>
+      <div class="panel">
+        <h3>Reporte en PDF</h3>
+        <div class="sheet" aria-hidden="true"><b>Reporte Nerilum</b><span class="w"></span><span></span><span class="r"></span></div>
+        <p>Se genera en tu dispositivo, sin pasar por el servidor. Imprímelo o compártelo con cualquier app.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
         <!-- sections/privacidad.html -->
-        <section class="band" id="privacidad">
-            <div class="wrap priv">
-                <h2>Tu imagen no se queda en el servidor.</h2>
-                <div>
-                    <div class="say">
-                        <b>La imagen: <u>no se guarda.</u></b>
-                        <p>
-                            El servidor la procesa para clasificarla y la
-                            descarta.
-                        </p>
-                    </div>
-                    <div class="say">
-                        <b>El resultado: <u>solo si tú lo pides.</u></b>
-                        <p>
-                            Ves el análisis primero. Guardar es una acción
-                            explícita.
-                        </p>
-                    </div>
-                    <div class="say">
-                        <b>Descartar: <u>no deja registro.</u></b>
-                        <p>
-                            Si descartas el análisis, no se crea ninguna
-                            entrada.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="band" id="privacidad">
+  <div class="wrap priv">
+    <h2>Tu imagen no se queda en el servidor.</h2>
+    <div>
+      <div class="say"><b>La imagen: <u>no se guarda.</u></b><p>El servidor la procesa para clasificarla y la descarta.</p></div>
+      <div class="say"><b>El resultado: <u>solo si tú lo pides.</u></b><p>Ves el análisis primero. Guardar es una acción explícita.</p></div>
+      <div class="say"><b>Descartar: <u>no deja registro.</u></b><p>Si descartas el análisis, no se crea ninguna entrada.</p></div>
+    </div>
+  </div>
+</section>
 
         <!-- sections/cierre.html -->
-        <section>
-            <div class="wrap closing">
-                <div>
-                    <h2>Nace de una investigación sobre detección temprana.</h2>
-                    <p>
-                        Nerilum parte del proyecto “Aplicación móvil con YOLO
-                        para la detección y clasificación de posibles signos de
-                        Alzheimer mediante imágenes de resonancia magnética”.
-                    </p>
-                    <a
-                        class="btn"
-                        href="https://google.com"
-                        target="_blank"
-                        rel="noopener"
-                        >Ingreso</a
-                    >
-                </div>
-                <div class="disc">
-                    <strong>Aviso importante</strong>
-                    <p>
-                        Nerilum es un prototipo académico con fines de
-                        investigación y orientación. No emite diagnósticos ni
-                        reemplaza la valoración de un profesional de la salud.
-                        Ante cualquier duda sobre tu salud cognitiva, consulta a
-                        un especialista.
-                    </p>
-                </div>
-            </div>
-        </section>
+<section>
+    <div class="wrap closing">
+        <div>
+            <h2>Nace de una investigación sobre detección temprana.</h2>
+            <p>
+                Nerilum parte del proyecto “Aplicación móvil con YOLO para la
+                detección y clasificación de posibles signos de Alzheimer
+                mediante imágenes de resonancia magnética”.
+            </p>
+            <a
+                class="btn"
+                href="https://google.com"
+                target="_blank"
+                rel="noopener"
+                >Ingreso</a
+            >
+        </div>
+        <div class="disc">
+            <strong>Aviso importante</strong>
+            <p>
+                Nerilum es un prototipo académico con fines de investigación y
+                orientación. No emite diagnósticos ni reemplaza la valoración de
+                un profesional de la salud. Ante cualquier duda sobre tu salud
+                cognitiva, consulta a un especialista.
+            </p>
+        </div>
+    </div>
+</section>
 
         <!-- sections/footer.html -->
-        <footer>
-            <div class="wrap">
-                <span>© 2026 Nerilum, prototipo académico</span
-                ><span>No sustituye el criterio médico profesional.</span>
-            </div>
-        </footer>
+<footer><div class="wrap"><span>© 2026 Nerilum, prototipo académico</span><span>No sustituye el criterio médico profesional.</span></div></footer>
 
         <!-- sections/totop.html -->
-        <button type="button" class="totop" aria-label="Volver arriba">
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-            >
-                <path d="M12 19V5M5 12l7-7 7 7" />
-            </svg>
-        </button>
+<button type="button" class="totop" aria-label="Volver arriba"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 
         <script src="js/env.js" defer></script>
         <script src="js/waffle.js" defer></script>

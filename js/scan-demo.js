@@ -37,7 +37,8 @@
   ];
   /* ────────────────────────────────────────────────────────────────────────── */
 
-  var btns=document.querySelectorAll('.pick button'),bars=document.querySelectorAll('.bar');
+  var btns=document.querySelectorAll('.pick button'),bars=document.querySelectorAll('.bar'),
+      slides=document.querySelectorAll('.view .slide');
 
   function show(k){
     var d=CASES[k];
@@ -49,6 +50,7 @@
       r.querySelector('i').style.background=top?d.c:'#6A994E';
       r.lastElementChild.textContent=d.s[i].toFixed(2);
     });
+    slides.forEach(function(im,i){im.classList.toggle('is-active',i===k);});
   }
 
   var cur=1,touched=false,
@@ -57,28 +59,27 @@
       timerEl=document.querySelector('.timer'),
       segs=timerEl.querySelectorAll('b');
 
+  function updateLabel(){
+    var base='Corte de resonancia cerebral de ejemplo: '+CASES[cur].label;
+    viewEl.setAttribute('aria-label',hold?base+' — escaneo pausado, haz clic para reanudar':base+' — haz clic para pausar');
+  }
+
   function mark(k){segs.forEach(function(s,i){s.className=i<k?'done':i===k?'cur':'';});}
 
-  function go(k){cur=k;show(k);mark(k);}
+  function go(k){cur=k;show(k);mark(k);updateLabel();}
 
   /* ── Pausa/reanuda al hacer click/tap en la imagen ── */
   var hold=false;
   function toggleHold(){
-    if(!hold){
-      hold=true;
-      timerEl.classList.add('paused');
-      viewEl.setAttribute('aria-label','Escaneo pausado — haz clic para reanudar');
-    }else{
-      hold=false;
-      timerEl.classList.remove('paused');
-      viewEl.setAttribute('aria-label','Corte de resonancia cerebral — haz clic para pausar');
-    }
+    hold=!hold;
+    timerEl.classList.toggle('paused',hold);
     viewEl.classList.toggle('paused',hold);
+    updateLabel();
   }
   viewEl.addEventListener('click',function(){if(!reduce)toggleHold();});
   viewEl.setAttribute('role','button');
   viewEl.setAttribute('tabindex','0');
-  viewEl.setAttribute('aria-label','Corte de resonancia cerebral con la región detectada — haz clic para pausar');
+  updateLabel();
   viewEl.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&!reduce){e.preventDefault();toggleHold();}});
 
   timerEl.addEventListener('animationend',function(){if(!touched&&!reduce)go((cur+1)%4);});
@@ -90,7 +91,6 @@
       // Si ya estaba pausado por hold, lo liberamos también
       hold=false;
       viewEl.classList.remove('paused');
-      viewEl.setAttribute('aria-label','Corte de resonancia cerebral — haz clic para pausar');
       touched=false;
       // Reiniciar el timer desde el principio de esta sección
       timerEl.classList.remove('manual','paused');
@@ -103,6 +103,5 @@
 
 
 
-  requestAnimationFrame(function(){show(1);});
-  mark(1);
+  requestAnimationFrame(function(){go(1);});
 })();

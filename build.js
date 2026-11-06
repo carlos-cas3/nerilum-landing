@@ -11,8 +11,8 @@ const out = tpl.replace(/^([ \t]*)<!-- @include (.+?) -->[ \t]*$/gm, (m, indent,
     console.error('No existe la sección: ' + file);
     process.exit(1);
   }
-  return indent + '<!-- ' + file.trim() + ' -->\n' + fs.readFileSync(p, 'utf8').replace(/\n+$/, '');
+  return indent + '<!-- ' + file.trim() + ' -->\r\n' + fs.readFileSync(p, 'utf8').replace(/(\r?\n)+$/, '');
 });
 
-fs.writeFileSync(path.join(__dirname, 'index.html'), out);
+fs.writeFileSync(path.join(__dirname, 'index.html'), out.replace(/\r\n|\r|\n/g, '\r\n'));
 console.log('index.html generado');

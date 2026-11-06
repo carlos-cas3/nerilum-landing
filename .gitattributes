@@ -1,0 +1,7 @@
+# Normalizar a LF en el repositorio; git convierte según plataforma en checkout
+* text=auto eol=lf
+
+# Binarios: nunca tocar line endings
+*.jpg binary
+*.png binary
+*.svg binary

@@ -1,69 +1,261 @@
 /* Demo del escaneo: panel, barra de tiempo, selector de clases y barras de puntuación. */
-.scan{background:#0D1710;border-radius:20px;padding:1rem;color:#F2E8CF;box-shadow:12px 12px 0 var(--mid)}
-.view{position:relative;cursor:pointer;width:min(100%,380px);margin-inline:auto}
-.view .slides{position:relative;width:100%;aspect-ratio:944/1116;border-radius:12px;overflow:hidden;background:#070C08}
-.view .slide{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .5s ease;pointer-events:none}
-.view .slide.is-active{opacity:1}
-/* Indicador de pausa/play al hacer click en la imagen */
-.view::after{
-  content:'';
-  position:absolute;inset:0;
-  border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;
-  transition:opacity .18s;
-  pointer-events:none;
-}
-/* Flash momentáneo al hacer click */
-.view.flash::after{
-  background:rgba(13,23,16,.45);
-  opacity:1;
-}
-/* Estado pausado: icono permanente y overlay tenue */
-.view.paused::after{
-  background:rgba(13,23,16,.52);
-  opacity:1;
-}
-/* Icono SVG superpuesto (play/pause) vía pseudo-elemento en el tag */
-.view .tag{position:absolute;z-index:2;top:.8rem;right:.8rem;font:600 .72rem var(--sans);background:#A7C957;color:#14230F;padding:.3rem .6rem;border-radius:6px;transition:background .18s,color .18s}
-.view.paused .tag{background:#F2E8CF;color:#14230F}
-/* Icono central de pause/play */
-.view-icon{
-  position:absolute;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%) scale(.7);
-  width:3rem;height:3rem;
-  border-radius:50%;
-  background:rgba(13,23,16,.72);
-  border:1.5px solid rgba(242,232,207,.28);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;
-  transition:opacity .18s,transform .22s cubic-bezier(.2,.7,.2,1);
-  pointer-events:none;
-}
-.view.paused .view-icon{
-  opacity:1;
-  transform:translate(-50%,-50%) scale(1);
+.scan {
+  background: #0D1710;
+  border-radius: 20px;
+  padding: 1rem;
+  color: #F2E8CF;
+  box-shadow: 12px 12px 0 var(--mid)
 }
 
-.timer{display:flex;gap:6px;margin-bottom:.8rem}
-.timer b{flex:1;height:4px;border-radius:2px;background:#223326;overflow:hidden}
-.timer b i{display:block;height:100%;width:0;background:#F2E8CF}
-.timer b.done i{width:100%}
-.timer b.cur i{animation:fill 3.2s linear forwards}
-.timer.paused b.cur i{animation-play-state:paused}
-.timer.manual b.cur i{animation:none;width:100%}
-@keyframes fill{from{width:0}to{width:100%}}
-.pick{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 .9rem}
-.pick button{flex:1;min-width:0;font:500 .88rem var(--sans);padding:.5rem .6rem;border-radius:8px;border:1.5px solid #3C5A41;background:transparent;color:#F2E8CF;cursor:pointer;transition:background .15s,transform .12s;white-space:nowrap}
-.pick button:hover{background:#1B2E20}
-.pick button[aria-pressed="true"]{background:#F2E8CF;color:#14230F;border-color:#F2E8CF}
-.bars{display:grid;gap:.55rem;font-size:.82rem}
-.bar{display:grid;grid-template-columns:6.6rem 1fr 2.3rem;gap:.6rem;align-items:center;color:#B7BFA6}
-.bar span:last-child{text-align:right;font-variant-numeric:tabular-nums}
-.bar b{display:block;height:8px;border-radius:4px;background:#223326;overflow:hidden}
-.bar b i{display:block;height:100%;width:0;background:#6A994E;transition:width .7s cubic-bezier(.2,.7,.2,1),background .3s}
-.bar.top{color:#F2E8CF}
-.scan small{display:block;margin-top:.9rem;color:#8E9A82;font-size:.74rem}
-.pick button:active{transform:scale(.95)}
-@media(prefers-reduced-motion:reduce){.timer b.cur i{animation:none;width:100%}.bar b i{transition:none}.pick button{transition:none}.pick button:active{transform:none}.view .slide{transition:none}}
+.view {
+  position: relative;
+  cursor: pointer;
+  width: min(100%, 380px);
+  margin-inline: auto
+}
+
+.view .slides {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 944/1116;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #070C08
+}
+
+.view .slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .5s ease;
+  pointer-events: none
+}
+
+.view .slide.is-active {
+  opacity: 1
+}
+
+/* Indicador de pausa/play al hacer click en la imagen */
+.view::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .18s;
+  pointer-events: none;
+}
+
+/* Flash momentáneo al hacer click */
+.view.flash::after {
+  background: rgba(13, 23, 16, .45);
+  opacity: 1;
+}
+
+/* Estado pausado: icono permanente y overlay tenue */
+.view.paused::after {
+  background: rgba(13, 23, 16, .52);
+  opacity: 1;
+}
+
+/* Icono SVG superpuesto (play/pause) vía pseudo-elemento en el tag */
+.view .tag {
+  position: absolute;
+  z-index: 2;
+  top: .8rem;
+  right: .8rem;
+  font: 600 .72rem var(--sans);
+  background: #A7C957;
+  color: #14230F;
+  padding: .3rem .6rem;
+  border-radius: 6px;
+  transition: background .18s, color .18s
+}
+
+.view.paused .tag {
+  background: #F2E8CF;
+  color: #14230F
+}
+
+/* Icono central de pause/play */
+.view-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(.7);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(13, 23, 16, .72);
+  border: 1.5px solid rgba(242, 232, 207, .28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .18s, transform .22s cubic-bezier(.2, .7, .2, 1);
+  pointer-events: none;
+}
+
+.view.paused .view-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.timer {
+  display: flex;
+  gap: 6px;
+  margin-bottom: .8rem
+}
+
+.timer b {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: #223326;
+  overflow: hidden
+}
+
+.timer b i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: #F2E8CF
+}
+
+.timer b.done i {
+  width: 100%
+}
+
+.timer b.cur i {
+  animation: fill 3.2s linear forwards
+}
+
+.timer.paused b.cur i {
+  animation-play-state: paused
+}
+
+.timer.manual b.cur i {
+  animation: none;
+  width: 100%
+}
+
+@keyframes fill {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+.pick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1rem 0 .9rem
+}
+
+.pick button {
+  flex: 1;
+  min-width: 0;
+  font: 500 .88rem var(--sans);
+  padding: .5rem .6rem;
+  border-radius: 8px;
+  border: 1.5px solid #3C5A41;
+  background: transparent;
+  color: #F2E8CF;
+  cursor: pointer;
+  transition: background .15s, transform .12s;
+  white-space: nowrap
+}
+
+.pick button:hover {
+  background: #1B2E20
+}
+
+.pick button[aria-pressed="true"] {
+  background: #F2E8CF;
+  color: #14230F;
+  border-color: #F2E8CF
+}
+
+.bars {
+  display: grid;
+  gap: .55rem;
+  font-size: .82rem
+}
+
+.bar {
+  display: grid;
+  grid-template-columns: 6.6rem 1fr 2.3rem;
+  gap: .6rem;
+  align-items: center;
+  color: #B7BFA6
+}
+
+.bar span:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums
+}
+
+.bar b {
+  display: block;
+  height: 8px;
+  border-radius: 4px;
+  background: #223326;
+  overflow: hidden
+}
+
+.bar b i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: #6A994E;
+  transition: width .7s cubic-bezier(.2, .7, .2, 1), background .3s
+}
+
+.bar.top {
+  color: #F2E8CF
+}
+
+.scan small {
+  display: block;
+  margin-top: .9rem;
+  color: #8E9A82;
+  font-size: .74rem
+}
+
+.pick button:active {
+  transform: scale(.95)
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .timer b.cur i {
+    animation: none;
+    width: 100%
+  }
+
+  .bar b i {
+    transition: none
+  }
+
+  .pick button {
+    transition: none
+  }
+
+  .pick button:active {
+    transform: none
+  }
+
+  .view .slide {
+    transition: none
+  }
+}

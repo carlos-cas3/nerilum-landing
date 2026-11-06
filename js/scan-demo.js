@@ -14,7 +14,7 @@
       n:'NonDemented',
       label:'Sin demencia',
       s:[.86,.10,.03,.01],
-      c:'#A7C957'
+      c:'#BC4749'
     },
     {
       n:'VeryMildDemented',

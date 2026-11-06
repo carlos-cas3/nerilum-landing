@@ -1,9 +1,66 @@
 /* Barra superior: logotipo, enlaces y botón Ingreso. */
-nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem}
-.brand{font:400 1.45rem var(--serif);text-decoration:none;display:flex;align-items:center;gap:.6rem}
-.brand svg{width:1.7rem;height:1.7rem}
-nav .links{display:flex;gap:1.75rem;font-size:.95rem;margin-left:auto}
-nav .links a{text-decoration:none;color:var(--muted)}
-nav .links a:hover{color:var(--ink)}
-@media(max-width:700px){nav .links{display:none}}
-.brand svg rect{fill:var(--brand)}.brand svg path{stroke:var(--on-brand)}.brand svg circle{fill:var(--on-brand)}.brand svg circle:first-of-type{fill:var(--logo-dot)}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    gap: 1rem
+}
+
+.brand {
+    font: 400 1.45rem var(--serif);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: .6rem
+}
+
+.brand img {
+    width: 1.7rem;
+    height: 1.7rem;
+    object-fit: contain;
+    display: block;
+}
+
+.brand svg {
+    width: 1.7rem;
+    height: 1.7rem
+}
+
+nav .links {
+    display: flex;
+    gap: 1.75rem;
+    font-size: .95rem;
+    margin-left: auto
+}
+
+nav .links a {
+    text-decoration: none;
+    color: var(--muted)
+}
+
+nav .links a:hover {
+    color: var(--ink)
+}
+
+@media(max-width:700px) {
+    nav .links {
+        display: none
+    }
+}
+
+.brand svg rect {
+    fill: var(--brand)
+}
+
+.brand svg path {
+    stroke: var(--on-brand)
+}
+
+.brand svg circle {
+    fill: var(--on-brand)
+}
+
+.brand svg circle:first-of-type {
+    fill: var(--logo-dot)
+}

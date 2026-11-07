@@ -1,0 +1,145 @@
+/* Sección de descarga APK — fondo base, contrasta con la banda oscura de privacidad. */
+
+#descarga {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+
+#descarga h2 {
+    color: var(--ink);
+}
+
+#descarga .descarga-texto p {
+    color: var(--muted);
+}
+
+.descarga {
+    display: grid;
+    grid-template-columns: 1fr 1.45fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+}
+
+.descarga-texto p {
+    margin-top: .875rem;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    opacity: .82;
+    max-width: 28rem;
+}
+
+/* Opciones */
+.descarga-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.descarga-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    transition: background .2s, border-color .2s;
+}
+
+.descarga-card:hover {
+    background: var(--bg);
+    border-color: var(--mid);
+}
+
+.descarga-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.descarga-plat-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(56, 102, 65, .1);
+    color: var(--brand);
+}
+
+.descarga-card-body {
+    min-width: 0;
+}
+
+.descarga-card-body strong {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--ink);
+    line-height: 1.2;
+}
+
+.descarga-card-body p {
+    margin-top: .25rem;
+    font-size: .875rem;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Botón dentro de la sección clara */
+.descarga-btn {
+    flex-shrink: 0;
+    background: var(--brand);
+    color: var(--on-brand);
+    white-space: nowrap;
+}
+
+.descarga-btn:hover {
+    background: var(--brand-hover);
+    color: var(--on-brand);
+}
+
+/* Estado "próximamente" */
+.descarga-btn.proximamente {
+    background: var(--line);
+    color: var(--muted);
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+}
+
+/* Eliminar el bloque de web-card ya que no existe */
+
+@media (max-width: 860px) {
+    .descarga {
+        grid-template-columns: 1fr;
+    }
+
+    .descarga-card {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .descarga-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .descarga-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .descarga-card-body p {
+        white-space: normal;
+    }
+}
